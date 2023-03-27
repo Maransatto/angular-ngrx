@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-shopping-list';
+  ingredients?: any[] = [
+    { name: 'Apples', amount: 5 },
+    { name: 'Tomatoes', amount: 10 },
+  ]
 }
