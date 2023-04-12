@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './store/shopping-list.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,13 @@ import { AddIngredientComponent } from './add-ingredient/add-ingredient.componen
     AddIngredientComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({
+      shoppingList: shoppingListReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
