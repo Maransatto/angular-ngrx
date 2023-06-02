@@ -9,6 +9,11 @@ export const initialState: IShoppingListState = {
             name: 'Milk',
             quantity: 1
         },
+        {
+            id: 2,
+            name: 'Bread',
+            quantity: 2
+        },
     ],
     isLoading: false
 };
@@ -17,7 +22,6 @@ export const shoppingListReducer = createReducer(
     initialState,
     on(loadShoppingList, (state) => ({
         ...state,
-        entities: [],
         isLoading: true
     })),
     on(loadShoppingListSuccess, (state, { entities }) => ({
