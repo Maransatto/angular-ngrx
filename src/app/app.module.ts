@@ -7,6 +7,9 @@ import { AddIngredientComponent } from './add-ingredient/add-ingredient.componen
 import { StoreModule } from '@ngrx/store';
 import { shoppingListReducer } from './store/shopping-list.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import * as shoppingListEffects from './store/shopping-list.effects';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-    })
+    }),
+    EffectsModule.forRoot([shoppingListEffects])
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
