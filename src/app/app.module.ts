@@ -10,15 +10,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import * as shoppingListEffects from './store/shopping-list.effects';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingListComponent,
-    AddIngredientComponent
+    AddIngredientComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({
       shoppingList: shoppingListReducer
     }),
