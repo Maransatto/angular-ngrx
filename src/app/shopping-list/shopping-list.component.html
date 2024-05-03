@@ -2,6 +2,9 @@
     <li *ngFor="let ingredient of (ingredients$ | async)" class="mt-2">
         <span>{{ ingredient.quantity }}</span> - 
         <strong>{{ ingredient.name }}</strong>
-        <button class="btn btn-sm btn-danger ms-2">Remove</button>
+        <button class="btn btn-sm btn-danger ms-2"
+            (click)="removeItem(ingredient)">
+                Remove
+        </button>
     </li>
 </ul>

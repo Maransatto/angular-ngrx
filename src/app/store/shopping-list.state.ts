@@ -11,4 +11,5 @@ export interface IShoppingListState {
     entities: IShoppingListItem[];
     isLoading: boolean;
     isSaving: boolean;
+    isDeleting: boolean;
 }
