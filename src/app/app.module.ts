@@ -11,7 +11,6 @@ import { EffectsModule } from '@ngrx/effects';
 import * as shoppingListEffects from './store/shopping-list.effects';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,10 +27,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
-    EffectsModule.forRoot([shoppingListEffects]),
-    HttpClientModule
+    EffectsModule.forRoot([shoppingListEffects])
   ],
-  providers: [ShoppingListService, HttpClient],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

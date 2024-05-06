@@ -1,12 +1,9 @@
 import { Injectable } from "@angular/core";
 import { of } from "rxjs";
 import { IShoppingListCreateBase, IShoppingListItem } from "../store/shopping-list.state";
-import { HttpClient } from "@angular/common/http";
 
-@Injectable()
+Injectable()
 export class ShoppingListService {
-  constructor(private http: HttpClient) {}
-
   ingredientsMock: IShoppingListItem[] = [
         {
             id: 1,
@@ -36,11 +33,5 @@ export class ShoppingListService {
     }
     this.ingredientsMock = [...this.ingredientsMock, newItem];
     return of(newItem);
-  }
-
-  removeIngredient(id: number) {
-    // this.ingredientsMock = this.ingredientsMock.filter(item => item.id !== id);
-    // return of(id);
-    return this.http.delete(`http://localhost:3000/ingredients/${id}`);
   }
 }
