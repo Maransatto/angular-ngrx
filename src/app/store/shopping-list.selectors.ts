@@ -5,10 +5,23 @@ const getShoppingListState = createFeatureSelector<IShoppingListState>('shopping
 
 export const getShoppingList = createSelector(
     getShoppingListState,
-    (state: IShoppingListState) => state.entities
+    (state: IShoppingListState) => 
+        [...state.entities].sort(
+            (a, b) => a.name.localeCompare(b.name)
+        )
 );
 
 export const getShoppingListIsLoading = createSelector(
     getShoppingListState,
     (state: IShoppingListState) => state.isLoading
+);
+
+export const getShoppingListIsSaving = createSelector(
+    getShoppingListState,
+    (state: IShoppingListState) => state.isSaving
+);
+
+export const getShoppingListIsDeleting = createSelector(
+    getShoppingListState,
+    (state: IShoppingListState) => state.isDeleting
 );

@@ -25,3 +25,17 @@ export const addShoppingListItemSuccess = createAction(
 export const addShoppingListItemError = createAction(
     '[Shopping List Effects] Add Shopping List Item Error',
 );
+
+export const removeShoppingListItem = createAction(
+    '[Shopping List] Remove Shopping List Item',
+    props<{ item: IShoppingListItem }>()
+);
+
+export const removeShoppingListItemSuccess = createAction(
+    '[Shopping List Effects] Remove Shopping List Item Success',
+);
+
+export const removeShoppingListItemError = createAction(
+    '[Shopping List Effects] Remove Shopping List Item Error',
+    props<{ item: IShoppingListItem }>()
+);

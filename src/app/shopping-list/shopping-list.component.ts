@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { loadShoppingList } from '../store/shopping-list.actions';
-import { getShoppingList } from '../store/shopping-list.selectors';
+import { loadShoppingList, removeShoppingListItem } from '../store/shopping-list.actions';
+import { getShoppingList, getShoppingListIsDeleting, getShoppingListIsSaving } from '../store/shopping-list.selectors';
+import { IShoppingListItem } from '../store/shopping-list.state';
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,7 +16,19 @@ export class ShoppingListComponent implements OnInit {
     select(getShoppingList)
   )
 
+  isSaving$ = this.store.pipe(
+    select(getShoppingListIsSaving)
+  )
+
+  isDeleting$ = this.store.pipe(
+    select(getShoppingListIsDeleting)
+  )
+
   ngOnInit(): void {
     this.store.dispatch(loadShoppingList())
+  }
+
+  removeIngredient(item: IShoppingListItem) {
+    this.store.dispatch(removeShoppingListItem({ item }))
   }
 }
